@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -24,43 +24,55 @@
             android:fontFamily="serif"
             android:inputType="textPersonName"
             android:text="Location:"
-            android:textAlignment="textStart"
-            android:textSize="24sp" />
+            android:textAlignment="center"
+            android:textSize="28sp" />
 
-        <EditText
-            android:id="@+id/editText2"
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:clickable="false"
-            android:cursorVisible="false"
-            android:ems="10"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:fontFamily="serif"
-            android:inputType="textPersonName"
-            android:text="Longitude:"
-            android:textAlignment="textStart"
-            android:textSize="16sp" />
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/longitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="serif"
+                    android:inputType="textPersonName"
+                    android:text="Longitude:"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/latitude"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:fontFamily="serif"
+                    android:inputType="textPersonName"
+                    android:text="Latitude:"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+
+            </TableRow>
+        </TableLayout>
 
         <EditText
-            android:id="@+id/editText3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:clickable="false"
-            android:cursorVisible="false"
-            android:ems="10"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:fontFamily="serif"
-            android:inputType="textPersonName"
-            android:text="Latitude:"
-            android:textAlignment="textStart"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -72,11 +84,11 @@
             android:fontFamily="serif"
             android:inputType="textPersonName"
             android:text="Local time:"
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/temperature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -88,11 +100,11 @@
             android:fontFamily="serif"
             android:inputType="textPersonName"
             android:text="Temperature:"
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/pressure"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -104,11 +116,11 @@
             android:fontFamily="serif"
             android:inputType="textPersonName"
             android:text="Pressure:"
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -120,13 +132,216 @@
             android:fontFamily="serif"
             android:inputType="textPersonName"
             android:text="Description:"
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textSize="16sp" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageView"
             android:layout_width="52dp"
             android:layout_height="52dp"
+            android:layout_gravity="center"
             app:srcCompat="@android:drawable/presence_invisible" />
+
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/editText15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="serif"
+        android:inputType="textPersonName"
+        android:text="Location:"
+        android:textAlignment="center"
+        android:textSize="28sp" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="*">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/longitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="serif"
+                android:inputType="textPersonName"
+                android:text="Longitude:"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/latitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:ems="10"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:fontFamily="serif"
+                android:inputType="textPersonName"
+                android:text="Latitude:"
+                android:textAlignment="center"
+                android:textSize="16sp" />
+
+        </TableRow>
+    </TableLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/longitude"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="serif"
+            android:inputType="textPersonName"
+            android:text="Longitude:"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/latitude"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="serif"
+            android:inputType="textPersonName"
+            android:text="Latitude:"
+            android:textAlignment="center"
+            android:textSize="16sp" />
+
+    </TableRow>
+
+    <EditText
+        android:id="@+id/editText16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="serif"
+        android:inputType="textPersonName"
+        android:text="Longitude:"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editText17"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="serif"
+        android:inputType="textPersonName"
+        android:text="Latitude:"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editText18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="serif"
+        android:inputType="textPersonName"
+        android:text="Local time:"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editText19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="serif"
+        android:inputType="textPersonName"
+        android:text="Temperature:"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editText20"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="serif"
+        android:inputType="textPersonName"
+        android:text="Pressure:"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/editText21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:fontFamily="serif"
+        android:inputType="textPersonName"
+        android:text="Description:"
+        android:textAlignment="center"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_gravity="center"
+        app:srcCompat="@android:drawable/presence_invisible" />
 </LinearLayout>
