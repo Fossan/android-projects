@@ -30,6 +30,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     static Context context;
 
+    private static String city;
+    private static int unit;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +41,12 @@ public class SettingsActivity extends AppCompatActivity {
         dbHelper = new DatabaseHelper(this);
         initalizeComponents();
         setButtonActions();
-        if (QueryHelper.weatherData != null) {
-            location.setText(QueryHelper.weatherData.getWeather().getLocation().getCity());
-            radioGroup.check(QueryHelper.weatherData.getWeather().getUnits().getTemperature().equalsIgnoreCase("c") ? R.id.radio_celsius : R.id.radio_fahrenheit);
+        if (QueryHelper.weatherData.getQuery().getResults() != null) {
+            city = QueryHelper.weatherData.getWeather().getLocation().getCity();
+            unit = QueryHelper.weatherData.getWeather().getUnits().getTemperature().equalsIgnoreCase("c") ? R.id.radio_celsius : R.id.radio_fahrenheit;
         }
+        location.setText(city);
+        radioGroup.check(unit);
     }
 
     private synchronized void initalizeComponents() {
@@ -67,7 +72,7 @@ public class SettingsActivity extends AppCompatActivity {
                 }
                 QueryHelper.sendAndUpdate(context, location.getText().toString(), ((RadioButton)findViewById(radioGroup.getCheckedRadioButtonId())).getText().toString());
 
-                if (isFavorite.isChecked()) {
+                if (isFavorite.isChecked() && QueryHelper.weatherData.getQuery().getResults() != null) {
                     dbHelper.addFavorite(QueryHelper.weatherData.getWeather().getLocation().getCity(), QueryHelper.weatherData.getWeather().getUnits().getTemperature());
                 }
                 finish();

@@ -3,6 +3,7 @@ package pl.lodz.p.pogodynka.utils;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -25,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(
                 "create table " + TABLE_NAME + "(" +
                 "id integer primary key autoincrement," +
-                "city text," +
+                "city text unique," +
                 "unit text);"
         );
     }
@@ -40,7 +41,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put("city", city);
         contentValues.put("unit", unit);
-        db.insertOrThrow(TABLE_NAME, null, contentValues);
+        try {
+            db.insertOrThrow(TABLE_NAME, null, contentValues);
+        }
+        catch (SQLiteConstraintException e) {
+            e.printStackTrace();
+        }
     }
 
     public Cursor getFavorites() {
