@@ -28,12 +28,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         determineScreenType();
         context = this;
-        final Thread network = QueryHelper.sendQuery("Lodz", "C", context);
-        network.start();
-        try {
-            network.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        if (QueryHelper.weatherData == null) {
+            final Thread network = QueryHelper.sendQuery("Lodz", "C", context);
+            network.start();
+            try {
+                network.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -71,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.basic_fragment, new BasicFragment());
-            fragmentTransaction.add(R.id.additional_fragment, new AdditionalFragment());
-            fragmentTransaction.add(R.id.future_fragment, new FutureFragment());
+            fragmentTransaction.replace(R.id.basic_fragment, new BasicFragment());
+            fragmentTransaction.replace(R.id.additional_fragment, new AdditionalFragment());
+            fragmentTransaction.replace(R.id.future_fragment, new FutureFragment());
             fragmentTransaction.commit();
         }
     }
